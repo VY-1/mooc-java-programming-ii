@@ -18,8 +18,14 @@ public class Divisible {
                 .forEach(luku -> System.out.println(luku));
     }
 
+    //The exercise template includes a template for the method public static ArrayList<Integer> divisible(ArrayList<Integer> numbers).
+    //Implement a functionality there that gathers numbers divisible by two, three or five from the list it receives as a parameter, and returns them as a new list. 
+    //The list received as a parameter must not be altered.
     public static ArrayList<Integer> divisible(ArrayList<Integer> numbers) {
-        return new ArrayList<>();
+        ArrayList<Integer> divisibleNumber = numbers.stream()
+            .filter(number -> number %2 ==0 || number % 3==0 || number%5==0)
+            .collect(Collectors.toCollection(ArrayList::new));
+        return divisibleNumber;
     }
 
 }
