@@ -17,15 +17,72 @@ public class MagicSquare {
 
     // implement these three methods
     public ArrayList<Integer> sumsOfRows() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumOfRows = new ArrayList<>();
+        
+
+        for(int row = 0; row < square.length; row++){
+            int sumOfRow = 0;
+            for(int column = 0; column < square[row].length; column++){
+                sumOfRow += square[row][column];
+            }
+            sumOfRows.add(sumOfRow);
+        }
+        return sumOfRows;
     }
 
     public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumOfColumns = new ArrayList<>();
+        
+        for(int row = 0; row < square.length; row++){
+            int sumOfColumn = 0;
+            for(int column = 0; column < square[row].length; column++){
+                sumOfColumn += square[column][row];
+            }
+            sumOfColumns.add(sumOfColumn);
+        }
+
+        return sumOfColumns;
     }
 
+    /*
     public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumsOfDiagonals = new ArrayList<>();
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for(int row = 0; row < square.length; row++){
+            for(int column = 0; column < square.length; column++){
+                if(row == column){
+                    leftSum +=square[row][column];
+                }
+                if(row + column == square.length - 1){
+                    rightSum += square[row][column];
+                }
+            }
+        }
+        sumsOfDiagonals.add(leftSum);
+        sumsOfDiagonals.add(rightSum);
+
+        return sumsOfDiagonals;
+    }
+    */
+    public ArrayList<Integer> sumsOfDiagonals() {
+        ArrayList<Integer> sumsOfDiagonals = new ArrayList<>();
+ 
+        int sum = 0;
+        for (int y = 0; y < square.length; y++) {
+            sum += square[y][y];
+        }
+        sumsOfDiagonals.add(sum);
+ 
+        sum = 0;
+        for (int y = 0; y < square.length; y++) {
+            sum += square[square.length - y - 1][y];
+        }
+        sumsOfDiagonals.add(sum);
+ 
+        return sumsOfDiagonals;
+ 
     }
 
     // ready-made helper methods -- don't touch these
